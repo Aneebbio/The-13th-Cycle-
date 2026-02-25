@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinity Station | Project 69Q</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-shack">
+    <div id="corruption-overlay"></div>
+
+    <div id="infinity-whisper" class="whisper-box">
+        <div id="whisper-text">A copper wire... a dream of gold...</div>
+    </div>
+
+    <header class="station-header">
+        <div class="logo">INFINITY STATION <span class="version">v69.Q</span></div>
+        <nav class="nav-tabs">
+            <button onclick="window.UI.switchTab('mining')">[ MINING ]</button>
+            <button onclick="window.UI.switchTab('crafting')">[ CRAFTING ]</button>
+            <button onclick="window.UI.switchTab('travel')">[ TRAVEL ]</button>
+            <button onclick="window.UI.switchTab('laws')">[ THE LAWS ]</button>
+        </nav>
+    </header>
+
+    <main class="game-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">SECTOR INVENTORY</div>
+            <div id="resource-list" class="inventory-list">
+                </div>
+            <div class="rank-box">
+                RANK: #<span id="rank-number">13</span>
+            </div>
+        </aside>
+
+        <section class="workspace">
+            <div id="tab-mining" class="tab-content">
+                <h2 id="planet-name">The Shack</h2>
+                <div id="mining-zone" class="mining-grid">
+                    </div>
+            </div>
+
+            <div id="tab-crafting" class="tab-content" style="display:none;">
+                <h2>Factory Blueprints</h2>
+                <div class="crafting-layout">
+                    <div id="crafting-menu" class="blueprint-list"></div>
+                    <div id="crafting-details" class="details-panel">
+                        <p>Select a blueprint to begin construction.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-travel" class="tab-content" style="display:none;">
+                <h2>Navigational Warp</h2>
+                <div id="travel-steps" class="travel-grid">
+                    </div>
+            </div>
+
+            <div id="tab-laws" class="tab-content" style="display:none;">
+                <h2>The 13 Immutable Laws</h2>
+                <div id="laws-container" class="laws-list">
+                    <div class="law-item unlocked">Law of Friction: Energy requires effort.</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="warp-overlay">
+        <div class="warp-stars"></div>
+        <div id="warp-ship-icon">▲</div>
+        <div class="warp-message">BENDING SPACETIME</div>
+    </div>
+
+    <div id="final-modal" class="modal" style="display:none;">
+        <div id="modal-content"></div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>
