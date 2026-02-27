@@ -2,39 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>The 13th Cycle - Testing Environment</title>
-    <style>
-        body { background: #050505; color: #00ffcc; font-family: 'Courier New', monospace; display: flex; }
-        #sidebar { width: 250px; border-right: 1px solid #333; padding: 20px; }
-        #game-window { flex-grow: 1; padding: 20px; }
-        #map-container { width: 400px; height: 400px; border: 1px solid #00ffcc; position: relative; background: #000; }
-        .stat-box { margin-bottom: 10px; border: 1px solid #222; padding: 5px; }
-        button { background: #003333; color: #00ffcc; border: 1px solid #00ffcc; cursor: pointer; padding: 5px 10px; }
-        button:hover { background: #00ffcc; color: #000; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 13th Cycle</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div id="sidebar">
-        <h2>RESOURCES</h2>
-        <div id="res-list" class="stat-box"></div>
-        
-        <h2>VITALS</h2>
-        <div id="vitals" class="stat-box">
-            OXY: <span id="stat-oxy">0</span>%<br>
-            ENG: <span id="stat-eng">0</span>%
+    <nav id="top-tabs">
+        <button class="tab-btn active" onclick="switchTab('explore')">EXPLORE</button>
+        <button class="tab-btn" onclick="switchTab('base')">BASE</button>
+        <button class="tab-btn" onclick="switchTab('inventory')">INVENTORY</button>
+        <div id="top-vitals">
+            OXY: <span id="stat-oxy">100</span>% | ENG: <span id="stat-eng">100</span>%
         </div>
+    </nav>
 
-        <button onclick="saveGame()">FORCE SAVE</button>
-    </div>
+    <div id="main-wrapper">
+        <aside id="sidebar">
+            <div id="sub-tabs-header">ACTIONS</div>
+            <div id="sub-tabs-content">
+                </div>
+            <hr>
+            <button class="save-btn" onclick="saveGame()">FORCE SAVE</button>
+        </aside>
 
-    <div id="game-window">
-        <h1>SECTOR SCANNER</h1>
-        <div id="map-container">
+        <main id="game-window">
+            <div id="view-explore" class="tab-view">
+                <div class="view-header">SECTOR SCANNER</div>
+                <div id="map-container"></div>
+                <div id="event-log">> System initialized...</div>
             </div>
-        <div id="log" style="margin-top:20px; color: #888; font-size: 0.8em;">
-            > System Online...
-        </div>
+            
+            <div id="view-base" class="tab-view" style="display:none;">
+                <div class="view-header">CONSTRUCTION FIRM</div>
+                <div id="structure-list"></div>
+            </div>
+
+            <div id="view-inventory" class="tab-view" style="display:none;">
+                <div class="view-header">CARGO HOLD</div>
+                <div id="inventory-list"></div>
+            </div>
+        </main>
     </div>
 
     <script type="module" src="app.js"></script>
