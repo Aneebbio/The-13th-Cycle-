@@ -1,75 +1,38 @@
-import { 
-    icon_mine, 
-    icon_windmill, 
-    icon_archive, 
-    icon_portal_dormant 
-} from './symbols.js';
+import { icon_base, icon_mine, icon_archive, icon_portal_dormant } from './symbols.js';
 
 export const map_layout = {
-    world_id: "cycle_13_prime",
-    grid_bounds: { minX: 0, maxX: 100, minY: 0, maxY: 100 },
-    
-    // Core Exploration Nodes
     landmarks: [
-        // --- STARTING AREA ---
         {
-            id: "the_hub",
-            name: "Origin Base",
-            x: 50, y: 50,
-            icon: "icon_base",
+            id: "origin_hub",
+            name: "The 13th Hub",
+            x: 50, y: 50, // Center of the map
+            icon: icon_base,
             is_visible: true,
-            description: "Your central command unit."
+            description: "Your starting survival pod."
         },
-
-        // --- INDUSTRIAL NODES ---
         {
-            id: "quarry_zone",
-            name: "Limestone Quarry",
-            x: 42, y: 58,
+            id: "iron_vein_alpha",
+            name: "Iron Deposit",
+            x: 30, y: 40,
             icon: icon_mine,
             is_visible: true,
-            resource_bonus: "limestone"
+            description: "Rich hematite detected."
         },
-
-        // --- ANCIENT ARCHIVES (The Fragment Hunt) ---
         {
-            id: "archive_alpha",
-            name: "The Sunken Library",
-            x: 15, y: 12,
+            id: "ancient_archive_1",
+            name: "Vault of the First Cycle",
+            x: 80, y: 20,
             icon: icon_archive,
-            is_visible: false,
-            requirement: "hazard_boots",
-            reward: "address_fragment_01"
+            is_visible: false, // Requires discovery or radar scan
+            description: "Ancient data signatures detected."
         },
         {
-            id: "archive_beta",
-            name: "The Radioactive Vault",
-            x: 85, y: 88,
-            icon: icon_archive,
-            is_visible: false,
-            requirement: "lead_exosuit",
-            reward: "address_fragment_02"
-        },
-
-        // --- THE PORTAL NETWORK ---
-        {
-            id: "gate_central",
-            name: "Warp Gate Prime",
-            x: 55, y: 45,
+            id: "warp_gate_primary",
+            name: "Abandoned Star-Gate",
+            x: 10, y: 90,
             icon: icon_portal_dormant,
             is_visible: true,
-            is_portal: true,
-            connected_to: "gate_void", // Linked ID
-            logic: "gate_activation.js"
-        },
-        {
-            id: "gate_void",
-            name: "Deep Space Gate",
-            x: 500, y: 500, // Located way outside normal grid
-            icon: icon_portal_dormant,
-            is_visible: false,
-            is_portal: true,
-            connected_to: "gate_central"
+            description: "A massive ring of unknown alloy."
         }
     ]
 };
